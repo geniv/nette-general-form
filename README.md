@@ -4,11 +4,11 @@ Nette general form
 Installation
 ------------
 ```sh
-$ composer require nette-general-form
+$ composer require geniv/nette-general-form
 ```
 or
 ```json
-"nette-general-form": ">=1.0.0"
+"geniv/nette-general-form": ">=1.0.0"
 ```
 
 require:
