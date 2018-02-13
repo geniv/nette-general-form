@@ -1,0 +1,28 @@
+{
+  "name": "geniv/nette-general-form",
+  "description": "Form general class for Nette Framework",
+  "keywords": [
+    "nette",
+    "event",
+    "eventContainer",
+    "formContainer",
+    "content",
+    "geniv"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Radek Fryšták",
+      "email": "geniv.radek@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0.0",
+    "nette/nette": ">=2.4.0"
+  },
+  "autoload": {
+    "classmap": [
+      "src/"
+    ]
+  }
+}
