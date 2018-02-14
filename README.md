@@ -42,7 +42,7 @@ $form->onSuccess[] = function (Form $form, array $values) {
 };
 ```
 
-usage _ITemplatePath_:
+usage _ITemplatePath_ (without return type!):
 ```php
 class ContactForm extends Control implements ITemplatePath
 
