@@ -16,5 +16,5 @@ interface ITemplatePath
      *
      * @param string $path
      */
-    public function setTemplatePath(string $path);
+    public function setTemplatePath(string $path): self;
 }
