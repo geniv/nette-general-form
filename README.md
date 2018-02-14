@@ -19,13 +19,14 @@ require:
 
 Include in application
 ----------------------
-usage:
+usage _IFormContainer_ and _IEventContainer_:
 ```php
 public function __construct(IFormContainer $formContainer, array $events, ITranslator $translator = null)
 
 ...
 
 $this->eventContainer = new EventContainer($this, $events);
+$this->formContainer = $formContainer;
 
 ...
 
@@ -41,3 +42,11 @@ $form->onSuccess[] = function (Form $form, array $values) {
 };
 ```
 
+usage _ITemplatePath_:
+```php
+class ContactForm extends Control implements ITemplatePath
+
+...
+
+public function setTemplatePath(string $path)
+```
