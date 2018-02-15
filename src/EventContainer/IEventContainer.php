@@ -2,6 +2,7 @@
 
 namespace GeneralForm;
 
+use Exception;
 use Nette\ComponentModel\IComponent;
 
 
@@ -32,6 +33,9 @@ interface IEventContainer
 
     /**
      * Notify.
+     *
+     * @param null $values
+     * @throws Exception
      */
-    public function notify();
+    public function notify($values = null);
 }
