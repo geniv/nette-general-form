@@ -2,7 +2,7 @@
 
 namespace GeneralForm;
 
-use Contact\ContactException;
+use Exception;
 use Nette\ComponentModel\IComponent;
 
 
@@ -60,16 +60,23 @@ class EventContainer implements IEventContainer
     /**
      * Notify.
      *
-     * @throws ContactException
+     * @param null $values
+     * @throws Exception
      */
-    public function notify()
+    public function notify($values = null)
     {
+        //if define values in parameters
+        if ($values) {
+            $this->setValues($values);
+        }
+
+        // iterate events
         foreach ($this->events as $event) {
             // check instance of event
             if ($event instanceof IEvent) {
                 $event->update($this, $this->values);
             } else {
-                throw new ContactException(get_class($event) . ' is not instance of ' . IEvent::class);
+                throw new Exception(get_class($event) . ' is not instance of ' . IEvent::class);
             }
         }
     }
