@@ -17,14 +17,14 @@ class GeneralForm
 {
 
     /**
-     * Get form container definition.
+     * Get definition form container.
      *
      * @param CompilerExtension $compilerExtension
      * @param string            $prefixName
      * @param string            $indexConfig
      * @return ServiceDefinition
      */
-    public static function getFormContainerDefinition(CompilerExtension $compilerExtension, $indexConfig = 'formContainer', $prefixName = 'form'): ServiceDefinition
+    public static function getDefinitionFormContainer(CompilerExtension $compilerExtension, $indexConfig = 'formContainer', $prefixName = 'form'): ServiceDefinition
     {
         $builder = $compilerExtension->getContainerBuilder();
         $config = $compilerExtension->getConfig();
@@ -36,13 +36,13 @@ class GeneralForm
 
 
     /**
-     * Get event container definition.
+     * Get definition event container.
      *
      * @param CompilerExtension $compilerExtension
      * @param string            $indexConfig
      * @return array
      */
-    public static function getEventContainerDefinition(CompilerExtension $compilerExtension, $indexConfig = 'events'): array
+    public static function getDefinitionEventContainer(CompilerExtension $compilerExtension, $indexConfig = 'events'): array
     {
         $builder = $compilerExtension->getContainerBuilder();
         $config = $compilerExtension->getConfig();
