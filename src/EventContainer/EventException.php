@@ -1,15 +1,16 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: geniv
- * Date: 16.2.18
- * Time: 17:04
- */
+<?php declare(strict_types=1);
 
 namespace GeneralForm;
 
+use Exception;
 
-class EventException
+
+/**
+ * Class EventException
+ *
+ * @author  geniv
+ * @package GeneralForm
+ */
+class EventException extends Exception
 {
-
 }

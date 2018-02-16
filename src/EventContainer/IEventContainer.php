@@ -3,6 +3,7 @@
 namespace GeneralForm;
 
 use Exception;
+use Nette\Application\UI\Form;
 use Nette\ComponentModel\IComponent;
 
 
@@ -14,6 +15,27 @@ use Nette\ComponentModel\IComponent;
  */
 interface IEventContainer
 {
+
+    /**
+     * Factory.
+     *
+     * @param IComponent $component
+     * @param array      $events
+     * @param string     $callbackOnSuccess
+     * @param string     $callbackOnException
+     * @return IEventContainer
+     */
+    public static function factory(IComponent $component, array $events, $callbackOnSuccess = 'onSuccess', $callbackOnException = 'onException'): IEventContainer;
+
+
+    /**
+     * __invoke.
+     *
+     * @param Form  $form
+     * @param array $values
+     */
+    public function __invoke(Form $form, array $values);
+
 
     /**
      * Set values.
