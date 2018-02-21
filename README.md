@@ -26,6 +26,11 @@ class MyEvent implements IEvent
 ...
 
 public function update(IEventContainer $eventContainer, array $values)
+
+...
+$eventContainer->getForm()
+$eventContainer->setValues($values)
+$eventContainer->getComponent()
 ```
 
 usage _IFormContainer_ and _IEventContainer_ (can use magic `__invoke` method):
@@ -49,7 +54,7 @@ $form->onSuccess[] = $this->eventContainer;
 or _the old way_ without `__invoke`:
 ```php
 try {
-    $this->notify($values);
+    $this->notify($form, $values);
     $this->onSuccess($values);
 } catch (EventException $e) {
     $this->onException($e);
