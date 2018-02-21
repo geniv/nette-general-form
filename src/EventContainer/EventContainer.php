@@ -16,6 +16,8 @@ class EventContainer implements IEventContainer
 {
     /** @var array */
     private $events = [];
+    /** @var Form */
+    private $form;
     /** @var array */
     private $values = [];
     /** @var IComponent */
@@ -29,32 +31,15 @@ class EventContainer implements IEventContainer
      *
      * @param IComponent $component
      * @param array      $events
+     * @param string     $callbackOnSuccess
+     * @param string     $callbackOnException
      */
-    private function __construct(IComponent $component, array $events)
+    private function __construct(IComponent $component, array $events, string $callbackOnSuccess, string $callbackOnException)
     {
         $this->component = $component;
         $this->events = $events;
-    }
 
-
-    /**
-     * Set callback onSuccess.
-     *
-     * @param mixed $callbackOnSuccess
-     */
-    public function setCallbackOnSuccess($callbackOnSuccess)
-    {
         $this->callbackOnSuccess = $callbackOnSuccess;
-    }
-
-
-    /**
-     * Set callback onException.
-     *
-     * @param mixed $callbackOnException
-     */
-    public function setCallbackOnException($callbackOnException)
-    {
         $this->callbackOnException = $callbackOnException;
     }
 
@@ -70,9 +55,7 @@ class EventContainer implements IEventContainer
      */
     public static function factory(IComponent $component, array $events, $callbackOnSuccess = 'onSuccess', $callbackOnException = 'onException'): IEventContainer
     {
-        $instance = new self($component, $events);
-        $instance->setCallbackOnSuccess($callbackOnSuccess);
-        $instance->setCallbackOnException($callbackOnException);
+        $instance = new self($component, $events, $callbackOnSuccess, $callbackOnException);
         return $instance;
     }
 
@@ -86,7 +69,7 @@ class EventContainer implements IEventContainer
     public function __invoke(Form $form, array $values)
     {
         try {
-            $this->notify($values);
+            $this->notify($form, $values);
 
             if (property_exists($this->getComponent(), $this->callbackOnSuccess)) {
                 $this->getComponent()->{$this->callbackOnSuccess}($values);
@@ -96,6 +79,17 @@ class EventContainer implements IEventContainer
                 $this->getComponent()->{$this->callbackOnException}($e);
             }
         }
+    }
+
+
+    /**
+     * Get form.
+     *
+     * @return Form
+     */
+    public function getForm(): Form
+    {
+        return $this->form;
     }
 
 
@@ -124,11 +118,17 @@ class EventContainer implements IEventContainer
     /**
      * Notify.
      *
-     * @param null $values
+     * @param Form|null  $form
+     * @param array|null $values
      * @throws EventException
      */
-    public function notify($values = null)
+    public function notify(Form $form = null, array $values = null)
     {
+        //if define form in parameters
+        if ($form) {
+            $this->form = $form;
+        }
+
         //if define values in parameters
         if ($values) {
             $this->setValues($values);

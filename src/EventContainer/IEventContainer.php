@@ -33,8 +33,17 @@ interface IEventContainer
      *
      * @param Form  $form
      * @param array $values
+     * @return mixed
      */
     public function __invoke(Form $form, array $values);
+
+
+    /**
+     * Get form.
+     *
+     * @return Form
+     */
+    public function getForm(): Form;
 
 
     /**
@@ -56,8 +65,8 @@ interface IEventContainer
     /**
      * Notify.
      *
-     * @param null $values
-     * @throws Exception
+     * @param Form|null  $form
+     * @param array|null $values
      */
-    public function notify($values = null);
+    public function notify(Form $form = null, array $values = null);
 }
