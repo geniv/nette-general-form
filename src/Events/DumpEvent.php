@@ -1,16 +1,14 @@
 <?php declare(strict_types=1);
 
-namespace GeneralForm;
-
+use GeneralForm\IEvent;
+use GeneralForm\IEventContainer;
 use Nette\SmartObject;
-use Tracy\Debugger;
 
 
 /**
- * Class DumpEvent
+ * Class DumpEven
  *
  * @author  geniv
- * @package GeneralForm
  */
 class DumpEvent implements IEvent
 {
@@ -25,7 +23,6 @@ class DumpEvent implements IEvent
      */
     public function update(IEventContainer $eventContainer, array $values)
     {
-//        dump($values);
-        Debugger::fireLog($values);
+        dump($values);
     }
 }

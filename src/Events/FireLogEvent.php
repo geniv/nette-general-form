@@ -7,12 +7,11 @@ use Tracy\Debugger;
 
 
 /**
- * Class DumpEvent
+ * Class FireLogEvent
  *
  * @author  geniv
- * @package GeneralForm
  */
-class DumpEvent implements IEvent
+class FireLogEvent implements IEvent
 {
     use SmartObject;
 
@@ -25,7 +24,6 @@ class DumpEvent implements IEvent
      */
     public function update(IEventContainer $eventContainer, array $values)
     {
-        dump($values);
         Debugger::fireLog($values);
     }
 }

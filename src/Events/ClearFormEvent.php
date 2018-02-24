@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
-namespace GeneralForm;
-
+use GeneralForm\IEvent;
+use GeneralForm\IEventContainer;
 use Nette\SmartObject;
 
 
@@ -9,7 +9,6 @@ use Nette\SmartObject;
  * Class ClearFormEvent
  *
  * @author  geniv
- * @package GeneralForm
  */
 class ClearFormEvent implements IEvent
 {
