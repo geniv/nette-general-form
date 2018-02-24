@@ -27,9 +27,9 @@ class ClearFormEvent implements IEvent
      *
      * @param string $snippetName
      */
-    public function __construct(string $snippetName)
+    public function __construct(string $snippetName = '')
     {
-        $this->snippetName = $snippetName;
+        $this->snippetName = $snippetName ?: self::SNIPPET_NAME;
     }
 
 
