@@ -73,6 +73,14 @@ public function setTemplatePath(string $path)
 }
 ```
 
+Events for use (implements `IEvent`)
+---------------
+```neon
+- DumpEvent
+- FireLogEvent
+- ClearFormEvent
+```
+
 Extension
 ---------
 usage _GeneralForm_:

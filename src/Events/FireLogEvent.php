@@ -3,14 +3,15 @@
 use GeneralForm\IEvent;
 use GeneralForm\IEventContainer;
 use Nette\SmartObject;
+use Tracy\Debugger;
 
 
 /**
- * Class DumpEven
+ * Class FireLogEvent
  *
  * @author  geniv
  */
-class DumpEvent implements IEvent
+class FireLogEvent implements IEvent
 {
     use SmartObject;
 
@@ -23,6 +24,6 @@ class DumpEvent implements IEvent
      */
     public function update(IEventContainer $eventContainer, array $values)
     {
-        dump($values);
+        Debugger::fireLog($values);
     }
 }
