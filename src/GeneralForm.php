@@ -20,11 +20,11 @@ class GeneralForm
      * Get definition form container.
      *
      * @param CompilerExtension $compilerExtension
-     * @param string            $prefixName
      * @param string            $indexConfig
+     * @param string            $prefixName
      * @return ServiceDefinition
      */
-    public static function getDefinitionFormContainer(CompilerExtension $compilerExtension, $indexConfig = 'formContainer', $prefixName = 'form'): ServiceDefinition
+    public static function getDefinitionFormContainer(CompilerExtension $compilerExtension, $indexConfig = 'formContainer', $prefixName = 'formContainer'): ServiceDefinition
     {
         $builder = $compilerExtension->getContainerBuilder();
         $config = $compilerExtension->getConfig();
