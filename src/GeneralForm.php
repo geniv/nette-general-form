@@ -61,9 +61,14 @@ class GeneralForm
                 $name = $exp[count($exp) - 1];  // get last index
             }
 
-            $events[] = $builder->addDefinition($compilerExtension->prefix($name))
-                ->setFactory($event)
-                ->setAutowired($config['autowired']);
+            $definitionName = $compilerExtension->prefix($name);
+            if (!$builder->hasDefinition($definitionName)) {
+                $events[] = $builder->addDefinition($compilerExtension->prefix($name))
+                    ->setFactory($event)
+                    ->setAutowired($config['autowired']);
+            } else {
+                $events[] = $builder->getDefinition($definitionName);
+            }
         }
         return $events;
     }
