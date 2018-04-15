@@ -80,7 +80,7 @@ Events for use (implements `IEvent`)
 - FireLogEvent
 - ClearFormEvent
 - SetValueEvent   (setValues(array))
-- CheckValueEvent   (setCallback(IEventContainer, array))
+- CallbackEvent   (onCallback(IEventContainer, array))
 ```
 
 Extension
