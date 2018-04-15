@@ -43,7 +43,11 @@ class ClearFormEvent implements IEvent
     {
         $component = $eventContainer->getComponent();
         if ($component->presenter->isAjax()) {
+            // ajax reset form
             $component->redrawControl($this->snippetName);
+            $eventContainer->getForm()->reset();
+        } else {
+            // non ajax fallback
             $eventContainer->getForm()->reset();
         }
     }
