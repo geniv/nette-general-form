@@ -55,6 +55,14 @@ interface IEventContainer
 
 
     /**
+     * Get position.
+     *
+     * @return int
+     */
+    public function getPosition(): int;
+
+
+    /**
      * Get component.
      *
      * @return IComponent

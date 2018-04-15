@@ -79,6 +79,9 @@ Events for use (implements `IEvent`)
 - DumpEvent
 - FireLogEvent
 - ClearFormEvent
+- SetValueEvent
+- CheckValueEvent
+
 ```
 
 Extension

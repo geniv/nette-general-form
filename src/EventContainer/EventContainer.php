@@ -20,6 +20,8 @@ class EventContainer implements IEventContainer
     private $form;
     /** @var array */
     private $values = [];
+    /** @var int */
+    private $position;
     /** @var IComponent */
     private $component;
     /** @var string */
@@ -105,6 +107,17 @@ class EventContainer implements IEventContainer
 
 
     /**
+     * Get position.
+     *
+     * @return int
+     */
+    public function getPosition(): int
+    {
+        return $this->position;
+    }
+
+
+    /**
      * Get component.
      *
      * @return IComponent
@@ -135,7 +148,8 @@ class EventContainer implements IEventContainer
         }
 
         // iterate events
-        foreach ($this->events as $event) {
+        foreach ($this->events as $position => $event) {
+            $this->position = $position;    // save position event
             // check instance of event
             if ($event instanceof IEvent) {
                 $event->update($this, $this->values);

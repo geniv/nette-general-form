@@ -30,6 +30,17 @@ class SetValueEvent implements IEvent
 
 
     /**
+     * Set values.
+     *
+     * @param array $values
+     */
+    public function setValues(array $values)
+    {
+        $this->values = $values;
+    }
+
+
+    /**
      * Update.
      *
      * @param IEventContainer $eventContainer
