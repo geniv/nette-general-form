@@ -2,7 +2,6 @@
 
 namespace GeneralForm;
 
-use Exception;
 use Nette\Application\UI\Form;
 use Nette\ComponentModel\IComponent;
 
@@ -55,19 +54,27 @@ interface IEventContainer
 
 
     /**
-     * Get position.
-     *
-     * @return int
-     */
-    public function getPosition(): int;
-
-
-    /**
      * Get component.
      *
      * @return IComponent
      */
     public function getComponent(): IComponent;
+
+
+    /**
+     * Get event index.
+     *
+     * @return string
+     */
+    public function getEventIndex(): string;
+
+
+    /**
+     * Get events.
+     *
+     * @return array
+     */
+    public function getEvents(): array;
 
 
     /**

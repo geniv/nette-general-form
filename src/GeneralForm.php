@@ -48,7 +48,7 @@ class GeneralForm
         $config = $compilerExtension->getConfig();
 
         $events = [];
-        foreach ($config[$indexConfig] as $event) {
+        foreach ($config[$indexConfig] as $index => $event) {
             // get name from event/statement
             $name = $event;
             if ($event instanceof Statement) {
@@ -63,11 +63,11 @@ class GeneralForm
 
             $definitionName = $compilerExtension->prefix($name);
             if (!$builder->hasDefinition($definitionName)) {
-                $events[] = $builder->addDefinition($compilerExtension->prefix($name))
+                $events[$index] = $builder->addDefinition($compilerExtension->prefix($name))
                     ->setFactory($event)
                     ->setAutowired($config['autowired']);
             } else {
-                $events[] = $builder->getDefinition($definitionName);
+                $events[$index] = $builder->getDefinition($definitionName);
             }
         }
         return $events;

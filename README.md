@@ -80,8 +80,18 @@ Events for use (implements `IEvent`)
 - FireLogEvent
 - ClearFormEvent
 - SetValueEvent   (setValues(array))
-- CheckValueEvent   (setCallback(IEventContainer, array))
+- CallbackEvent   (onCallback(IEventContainer, array))
 ```
+
+event in definition is possible use several times, and define like anonymous index or text index
+```neon
+events:
+    - DumpEvent
+    - DumpEvent
+    fire1: FireLogEvent
+    fire2: FireLogEvent
+```
+
 
 Extension
 ---------
