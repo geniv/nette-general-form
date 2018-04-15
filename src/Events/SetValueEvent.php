@@ -23,7 +23,18 @@ class SetValueEvent implements IEvent
      *
      * @param array $values
      */
-    public function __construct(array $values)
+    public function __construct(array $values = [])
+    {
+        $this->values = $values;
+    }
+
+
+    /**
+     * Set values.
+     *
+     * @param array $values
+     */
+    public function setValues(array $values)
     {
         $this->values = $values;
     }
