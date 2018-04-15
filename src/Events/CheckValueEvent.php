@@ -1,9 +1,7 @@
 <?php declare(strict_types=1);
 
-use GeneralForm\EventException;
 use GeneralForm\IEvent;
 use GeneralForm\IEventContainer;
-use Identity\IIdentityModel;
 use Nette\SmartObject;
 use Nette\Utils\Callback;
 
@@ -40,6 +38,7 @@ class CheckValueEvent implements IEvent
      */
     public function update(IEventContainer $eventContainer, array $values)
     {
+        // function (IEventContainer $eventContainer, array $value) { return $value; }
         $eventContainer->setValues(Callback::invokeSafe($this->callback, [$eventContainer, $values], null));
     }
 }
