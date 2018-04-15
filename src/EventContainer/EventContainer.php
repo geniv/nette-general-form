@@ -149,7 +149,9 @@ class EventContainer implements IEventContainer
 
         // iterate events
         foreach ($this->events as $position => $event) {
-            $this->position = $position;    // save position event
+            // save position event
+            $this->position = $position;
+
             // check instance of event
             if ($event instanceof IEvent) {
                 $event->update($this, $this->values);

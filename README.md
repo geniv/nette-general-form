@@ -79,9 +79,8 @@ Events for use (implements `IEvent`)
 - DumpEvent
 - FireLogEvent
 - ClearFormEvent
-- SetValueEvent
-- CheckValueEvent
-
+- SetValueEvent   (setValues(array))
+- CheckValueEvent   (setCallback(IEventContainer, array))
 ```
 
 Extension
