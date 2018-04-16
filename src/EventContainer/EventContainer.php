@@ -107,6 +107,33 @@ class EventContainer implements IEventContainer
 
 
     /**
+     * Add values.
+     *
+     * @param array $values
+     */
+    public function addValues(array $values)
+    {
+        $this->values = array_merge($this->values, $values);
+    }
+
+
+    /**
+     * Remove value.
+     *
+     * @param string $key
+     * @return bool
+     */
+    public function removeValue(string $key): bool
+    {
+        if (isset($this->values[$key])) {
+            unset($this->values[$key]);
+            return true;
+        }
+        return false;
+    }
+
+
+    /**
      * Get component.
      *
      * @return IComponent
