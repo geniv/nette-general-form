@@ -27,10 +27,15 @@ class MyEvent implements IEvent
 
 public function update(IEventContainer $eventContainer, array $values)
 
+// usage method by IEventContainer
 ...
 $eventContainer->getForm()
+$eventContainer->addValues($values)
 $eventContainer->setValues($values)
+$eventContainer->removeValue($key)
 $eventContainer->getComponent()
+$eventContainer->getEventIndex()
+$eventContainer->getEvents()
 ```
 
 usage _IFormContainer_ and _IEventContainer_ (can use magic `__invoke` method):
@@ -79,8 +84,9 @@ Events for use (implements `IEvent`)
 - DumpEvent
 - FireLogEvent
 - ClearFormEvent
-- SetValueEvent   (setValues(array))
-- CallbackEvent   (onCallback(IEventContainer, array))
+- SetValueEvent     (setValues(array))
+- CallbackEvent     (onCallback(IEventContainer, array))
+- EmailNotifyEvent  (getMessage(), setTemplatePath(string))
 ```
 
 event in definition is possible use several times, and define like anonymous index or text index
@@ -91,7 +97,6 @@ events:
     fire1: FireLogEvent
     fire2: FireLogEvent
 ```
-
 
 Extension
 ---------
