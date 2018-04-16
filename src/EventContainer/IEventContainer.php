@@ -46,11 +46,28 @@ interface IEventContainer
 
 
     /**
+     * Add values.
+     *
+     * @param array $values
+     */
+    public function addValues(array $values);
+
+
+    /**
      * Set values.
      *
      * @param array $values
      */
     public function setValues(array $values);
+
+
+    /**
+     * Remove value.
+     *
+     * @param string $key
+     * @return bool
+     */
+    public function removeValue(string $key): bool;
 
 
     /**
