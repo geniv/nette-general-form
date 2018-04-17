@@ -5,6 +5,7 @@ namespace GeneralForm;
 use Nette\DI\CompilerExtension;
 use Nette\DI\ServiceDefinition;
 use Nette\DI\Statement;
+use Nette\StaticClass;
 
 
 /**
@@ -15,6 +16,8 @@ use Nette\DI\Statement;
  */
 class GeneralForm
 {
+    use StaticClass;
+
 
     /**
      * Get definition form container.
