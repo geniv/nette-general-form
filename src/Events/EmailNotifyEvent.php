@@ -42,11 +42,11 @@ class EmailNotifyEvent implements IEvent, ITemplatePath
      * @param ITranslator|null $translator
      * @param IMailer          $mailer
      */
-    public function __construct(ITemplateFactory $templateFactory, ITranslator $translator = null, IMailer $mailer)
+    public function __construct(ITemplateFactory $templateFactory, IMailer $mailer, ITranslator $translator = null)
     {
         $this->templateFactory = $templateFactory;
-        $this->translator = $translator;
         $this->mailer = $mailer;
+        $this->translator = $translator;
 
         $this->message = new Message;
 
