@@ -8,13 +8,18 @@ $ composer require geniv/nette-general-form
 ```
 or
 ```json
-"geniv/nette-general-form": ">=1.0.0"
+"geniv/nette-general-form": "^1.1"
 ```
 
 require:
 ```json
-"php": ">=7.0.0",
-"nette/nette": ">=2.4.0"
+"php": ">=7.0",
+"nette/application": ">=2.4",
+"nette/component-model": ">=2.3",
+"nette/di": ">=2.4",
+"nette/mail": ">=2.4",
+"nette/utils": ">=2.4",
+"tracy/tracy": ">=2.4"
 ```
 
 Include in application
