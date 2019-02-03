@@ -8,7 +8,7 @@ $ composer require geniv/nette-general-form
 ```
 or
 ```json
-"geniv/nette-general-form": "^1.0"
+"geniv/nette-general-form": "^1.1"
 ```
 
 require:
